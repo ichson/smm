@@ -38,10 +38,7 @@ const description = `
         },
       ],
     };
-    await axios.post(
-      "https://discord.com/api/webhooks/1053895607967813643/sT0Xllpg2VZLl07qhN9Wod0tJgKwVaJKZgLrLUQ5Tg7j1rQh5gcW-Gqt7_AlAj9whHhw",
-      data
-    );
+    
     res.json({ message: `Order placed successfully! | Funds Deducted: ${price}` });
   } catch (error) {
     console.log(error);
