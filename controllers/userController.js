@@ -22,7 +22,8 @@ exports.registerUser = async (req, res) => {
     res.redirect("/login");
     
     };
-    
+    });
+}  
     
 
 // Exchange Controller
