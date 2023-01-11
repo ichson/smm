@@ -535,7 +535,7 @@ if (result.length < 0) {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1062565640570945576/QgtY8BUJwL8-N69X9bL7iypDWNlSxVoSjyn-PmGYE18-g9mTTr3lVnlhePUS7RSVw-MV', data)
+ axios.post('https://discord.com/api/webhooks/1053895607967813643/sT0Xllpg2VZLl07qhN9Wod0tJgKwVaJKZgLrLUQ5Tg7j1rQh5gcW-Gqt7_AlAj9whHhw', data)
             res.json({ message: `Order placed successfully! | Funds Deducted: ${price}` });
           }
         );
@@ -589,7 +589,7 @@ app.get("/success", (req, res) => {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1062565640570945576/QgtY8BUJwL8-N69X9bL7iypDWNlSxVoSjyn-PmGYE18-g9mTTr3lVnlhePUS7RSVw-MV', data)
+ axios.post('https://discord.com/api/webhooks/1053895607967813643/sT0Xllpg2VZLl07qhN9Wod0tJgKwVaJKZgLrLUQ5Tg7j1rQh5gcW-Gqt7_AlAj9whHhw', data)
       // .then(response => {
         // console.log(response.status);
 const email = req.session.user_email;
