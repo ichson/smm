@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include("./partials/head")-%>
+  </head>
+  <body>
+    <main class="lg:my-28 my-8">
+      <div class="container">
+        <form
+          action="/api/user/register"
+          method="POST"
+          class="bg-[#171e2e]/50 max-w-[500px] rounded p-7 mx-auto"
+        >
+          <h1 class="text-2xl font-bold text-white mb-10">Create a account</h1>
+
+          <% if (message.length > 0) { %>
+          <div
+            class="<% if (messageType == "success") { %>bg-green-500 <% } else { %>bg-red-500 <% } %> w-full p-5 rounded-[10px] mb-10 text-white font-[500]"
+          >
+            <%= message %>
+          </div>
+          <% } %>
+
+          <div class="mb-5">
+            <label for="name" class="text-[#9ca3af] mb-2 block"
+              >Your Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="mb-5">
+            <label for="email" class="text-[#9ca3af] mb-2 block"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+
+          <div class="mb-5">
+            <label for="password" class="text-[#9ca3af] mb-2 block"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            name="submit"
+            class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none"
+          >
+            Create
+          </button>
+
+          <p class="text-[#9ca3af] mt-5">Already have an account? <a href="/login" class="text-primary underline">Login</a></p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

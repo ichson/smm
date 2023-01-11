@@ -1,0 +1,99 @@
+<div
+  class="bg-[#0d1321] z-50 border-r border-dashed border-[#374151] p-5 h-[100vh] fixed w-[302px]"
+>
+  <div>
+    <h1 class="text-4xl text-white font-bold">Vincat</h1>
+
+    <div
+      class="bg-[#171e2e] p-5 rounded-[10px] text-[#9ca3af] my-10 font-medium"
+    >
+      Welcome back, <%= user.name %>!
+    </div>
+
+    <!-- Links -->
+    <ul class="max-h-[60vh] overflow-y-auto">
+      <% navLinks.forEach(function(item) { %>
+      <li class="mb-2">
+        <a
+          href="<%= item.url %>"
+          class="nav-link <% if (item.isActive) { %> active bg-[#111827] text-white hover:bg-primary <% } else { %> text-[#6b7280] hover:bg-[#111827] <% } %> transition flex items-center p-4 rounded-[10px] font-medium hover:text-white"
+        >
+          <img
+            src="./icons/<%= item.icon %>.svg"
+            alt=""
+            width="22"
+            height="22"
+            class="mr-3 transition"
+          />
+          <%= item.name %>
+      </a>
+         <% if (item.name === 'Tools') { %>
+         <ul>
+           <a href="/instagram-scraper" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    Instagram HashTag Scraper
+  </a>
+         
+                      <a href="/geolocation" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+  Geolocation
+  </a>
+         </ul>
+              <% } %>
+      <% if (item.name === 'SMM') { %>
+        
+        <ul>
+           <a href="/instagram" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    Instagram Service
+  </a>
+                <a href="/twitter" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    Twitter Service
+  </a>
+                <a href="/tiktok" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    TikTok Service
+  </a>
+                <a href="/twitch" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    Twitch Service
+  </a>
+                <a href="/soundcloud" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    SoundCloud Service
+  </a>
+                <a href="/spotify" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    Spotify Service
+  </a>
+                <a href="/google" class="nav-link  text-white hover:bg-primary  transition flex items-center p-4 rounded-[10px] font-medium hover:text-white">
+    <img src="./icons/menu.svg" alt="" width="22" height="22" class="mr-3 transition">
+    Google Service
+  </a>
+        </ul>
+      <% } %>
+    </li>
+  <% }); %>
+</ul>
+
+<style>
+  li a:hover + ul,
+  li ul:hover {
+    display: block;
+  }
+
+  li ul {
+    display: none;
+  }
+</style>
+  </div>
+</div>
+<!-- Thunder Icon -->
+<div class="absolute top-[50px] right-[20px]">
+<button class="bg-[#111827] py-2 px-4 rounded-[10px] text-white text-sm" style="margin-right: 10px">
+    Funds: <%= user.funds %>
+</button>
+
+  
+</div>

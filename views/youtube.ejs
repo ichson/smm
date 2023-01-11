@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include("./partials/head")-%>
+  </head>
+  <body>
+     <div class="container-fluid">
+      <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-[302px] hidden lg:block" id="sidebar">
+          <%-include("./partials/sidebar")-%>
+        </div>
+<main class="mx-auto lg:my-28 my-8" style="width: 600px; height: 500px;">
+
+      <div class="container">
+                
+    <form action="/order-checkout" method="POST" class="bg-[#171e2e]/50 max-w-[500px] rounded p-7 mx-auto">
+          <h1 class="text-2xl font-bold text-white mb-10">
+           Create An Order!
+          </h1>
+
+
+            
+    
+          <div class="mb-5">
+            <label for="email" class="text-[#9ca3af] mb-2 block">Service</label>
+<select name="service" id="service" class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full">
+  <option value="">Select a service</option>
+<option value="youtube_views">YouTube Views</option>
+<option value="youtube_likes">YouTube Likes</option>
+<option value="youtube_dislikes">YouTube Dislikes</option>
+<option value="youtube_subs">YouTube Subscribers</option>
+<option value="youtube_comments">YouTube Comments</option>
+</select>
+          </div>
+<div class="mb-5">
+  <script>
+function calculateTotal() {
+  const selectedService = document.getElementById("service").value;
+  const quantity = document.getElementById("quantity").value;
+
+  let price;
+if (selectedService === "youtube_views") {
+  price = 0.36 * quantity/1000;
+} else if (selectedService === "youtube_likes") {
+  price = 0.4 * quantity/1000;
+} else if (selectedService === "youtube_dislikes") {
+  price = 0.4 * quantity/1000;
+} else if (selectedService === "youtube_subs") {
+  price = 0.6 * quantity/1000;
+} else if (selectedService === "youtube_comments") {
+  price = 2.4246 * quantity/1000;
+} 
+}else {
+   alert("Select Service!")
+  }
+
+  document.getElementById("total").innerHTML = price;
+}
+</script>
+             <label for="email" class="text-[#9ca3af] mb-2 block">URL: </label>
+            <input type="text" name="profileurl" id="profileurl" class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full" placeholder="Enter your profile URL">
+          </div>
+
+          <div class="mb-5">
+            
+<input type="Number" name="quantity" id="quantity" class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full" placeholder="Enter desired Quantity" onkeyup="calculateTotal()">
+          </div>
+          <button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none">
+            Create Order
+          </button>
+  
+          <label for="quantity" class="text-[#9ca3af] mb-2 block">Total: <span id="total"></span></label>
+          <p class="text-[#9ca3af] mt-5">Done Looking? <a href="/" class="text-primary underline">Go Back</a></p>
+            </form>
+      </div>
+    </main>
+  </body>
+</html>

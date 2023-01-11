@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include("./partials/head")-%>
+  </head>
+  <body>
+    <main class="lg:my-28 my-8">
+
+      <div class="container">
+                
+    <form action="/checkout" method="POST" class="bg-[#171e2e]/50 max-w-[500px] rounded p-7 mx-auto">
+          <h1 class="text-2xl font-bold text-white mb-10">
+           Add Funds!
+          </h1>
+
+
+            
+    
+          <div class="mb-5">
+            <label for="email" class="text-[#9ca3af] mb-2 block">Payment Gateaway</label>
+<select name="service" id="service" class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full">
+  <option value="">Select a payment gateaway:</option>
+  <option value="PayPal">PayPal</option>
+  <option value="CashApp">CashApp</option>
+  <option value="Crypto">Crypto</option>
+</select>
+          </div>
+
+
+          <div class="mb-5">
+            
+        <label for="email" class="text-[#9ca3af] mb-2 block">Quantity</label>
+            <input type="text" name="quantity" id="quantity" class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full" placeholder="Enter desired Quantity">
+          </div>
+
+          <button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none">
+            Create Order
+          </button>
+
+          <p class="text-[#9ca3af] mt-5">Done Looking? <a href="/" class="text-primary underline">Go Back</a></p>
+            </form>
+      </div>
+    </main>
+  </body>
+</html>

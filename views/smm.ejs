@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include("./partials/head")-%>
+  </head>
+  <body>
+    <div
+      id="toggleWrap"
+      class="fixed z-[99] top-[20px] lg:left-[240px] left-[20px] lg:hidden"
+    >
+      <button class="bg-[#111827] p-3 rounded-full" id="toggleMenu">
+        <img src="./icons/menu.svg" alt="" width="25" height="25" />
+      </button>
+    </div>
+
+    <div class="container-fluid">
+      <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-[302px] hidden lg:block" id="sidebar">
+          <%-include("./partials/sidebar")-%>
+        </div>
+
+        <!-- main -->
+        <div id="main" class="lg:w-[calc(100%_-_302px)] w-full">
+          <div class="mx-5 my-[50px]">
+     <div class="container">
+  
+
+          
+          
+          <div class="mb-5">
+            <label for="email" class="text-[#9ca3af] mb-2 block">From:</label>
+    
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="cashapp" value="fromcashapp"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060009164107153498/Cash-App-Logo.png" width="62"></button>
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="venmo" value="fromvenmo"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060006349095841913/Venmo-Color.png" width="35"></button>
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="paypal" value="frompaypal"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060009213268598824/paypal-icon-logo-png-transparent.png" width="30"></button>
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="cryptocurrency" value="fromcryptocurrency"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060009259015884810/cryptocurrency.png" width="30"></button>
+          </div>
+
+          <div class="mb-5">
+            <label for="password" class="text-[#9ca3af] mb-2 block">To:</label>
+            <div class="mb-5">
+            
+            
+               
+<input class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="tocashapp" value="tocashapp" type="checkbox"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060009164107153498/Cash-App-Logo.png" width="62">
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="tovenmo" value="tovenmo"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060006349095841913/Venmo-Color.png" width="35"></button>
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="topaypal" value="topaypal"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060009213268598824/paypal-icon-logo-png-transparent.png" width="30"></button>
+<button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="tocryptocurrency" value="tocryptocurrency"><img src="https://cdn.discordapp.com/attachments/1052778061055135826/1060009259015884810/cryptocurrency.png" width="30"></button>
+          </div>
+          </div>
+   
+    
+   <form action="/begin-exchange" method="POST">
+       <button class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none" name="startexchange" >Start Exchange</button>
+        </form>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+      var options = {
+        series: [
+          {
+            name: "series1",
+            data: [80, 80, 50, 89, 80, 109, 100],
+          },
+        ],
+        colors: ["#5d2a8c"],
+        chart: {
+          height: 350,
+          type: "area",
+          fontFamily: "Fira Code, monospace",
+          foreColor: "#9ca3af",
+        },
+        grid: {
+          xaxis: {
+            lines: {
+              show: false,
+            },
+          },
+
+          yaxis: {
+            lines: {
+              show: false,
+            },
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+        },
+        xaxis: {
+          categories: ["SAT", "SUN", "MON", "TUE", "WED", "THU", "FRI"],
+          style: {
+            fontSize: "12px",
+            color: "#fff",
+            background: "#00E396",
+          },
+        },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>

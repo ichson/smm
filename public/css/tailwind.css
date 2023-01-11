@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Fira Code", monospace;
+}
+
+body {
+  background-color: #0d1321;
+}
+
+.nav-link img {
+  filter: invert(46%) sepia(8%) saturate(614%) hue-rotate(181deg)
+    brightness(94%) contrast(92%);
+}
+
+.nav-link:hover img,
+.nav-link.active img {
+  filter: unset !important;
+}
+
+.apexcharts-grid-borders,
+.apexcharts-toolbar {
+  display: none !important;
+}

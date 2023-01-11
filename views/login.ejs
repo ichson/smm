@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include("./partials/head")-%>
+  </head>
+  <body>
+    <main class="lg:my-28 my-8">
+      <div class="container">
+        <form
+          action="/api/user/login"
+          method="POST"
+          class="bg-[#171e2e]/50 max-w-[500px] rounded p-7 mx-auto"
+        >
+          <h1 class="text-2xl font-bold text-white mb-10">
+            Login to your account
+          </h1>
+
+          <% if (message.length > 0) { %>
+            <div
+              class="<% if (messageType == "success") { %>bg-green-500 <% } else { %>bg-red-500 <% } %> w-full p-5 rounded-[10px] mb-10 text-white font-[500]"
+            >
+              <%= message %>
+            </div>
+          <% } %>
+          
+          <div class="mb-5">
+            <label for="email" class="text-[#9ca3af] mb-2 block"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full"
+              placeholder="Enter your email address"
+            />
+          </div>
+
+          <div class="mb-5">
+            <label for="password" class="text-[#9ca3af] mb-2 block"
+              >Password</label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] rounded-[10px] outline-none w-full"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <button
+            class="p-3 px-5 bg-[#171e2e] text-[#9ca3af] transition hover:bg-primary hover:text-white rounded-[10px] outline-none border-none"
+          >
+            Login
+          </button>
+
+          <p class="text-[#9ca3af] mt-5">Don't have an account? <a href="/register" class="text-primary underline">Register</a></p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
