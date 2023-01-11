@@ -390,7 +390,7 @@ app.post("/checkout", (req, res) => {
           "payment_method": "paypal"
         },
         "redirect_urls": {
-          "return_url": "https://FrightenedFixedPredictions.niggersvangrenluke42.repl.co/success",
+          "return_url": "https://ichsmm.com/success",
           "cancel_url": "http://cancel.url"
         },
         "transactions": [{
@@ -601,7 +601,7 @@ UserModel.updateOne(
       console.log(err);
     } else {
       // Use the `send` method of the `response` object to send a response to the client
-      res.redirect("https://FrightenedFixedPredictions.niggersvangrenluke42.repl.co/");
+      res.redirect("https://ichsmm.com/");
     }
 
         }
