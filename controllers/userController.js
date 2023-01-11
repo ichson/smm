@@ -3,13 +3,13 @@ const UserModel = require("../models/userSchema");
 const axios = require('axios');
 
 exports.registerUser = async (req, res) => {
-  try {
+  
     const existingUser = await UserModel.findOne({ email: req.body.email });
     if (existingUser) {
       req.flash("message", "Email address already exists.");
       req.flash("messageType", "danger");
       return res.redirect("/register");
-    }
+    
     const user = new UserModel({
       name: req.body.name,
       email: req.body.email,
@@ -21,9 +21,10 @@ exports.registerUser = async (req, res) => {
     req.flash("messageType", "success");
     res.redirect("/login");
     
-    };
-    });
-}  
+  }
+})
+
+
     
 
 // Exchange Controller
