@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 const axios = require('axios');
 var paypal = require('paypal-rest-sdk');
 paypal.configure({
-  'mode': 'sandbox', //sandbox or live
+  'mode': 'live', //sandbox or live
   'client_id': 'AfrTVTt94gqTBzNiu-gMYHSRaNTPWF5RRba4XmNdTg7R_IIFZw7S9_EVGfvBW7cKPSLTVdUNNr8qvDYV',
   'client_secret': 'EAnyaCmrjvxeGegUasXOrDS6Y820PJoTQleP17MzCWfNm9C_g3mfPP9j_LfAKKPubx1D_T-F3mzoRpor'
 });
@@ -390,7 +390,7 @@ app.post("/checkout", (req, res) => {
           "payment_method": "paypal"
         },
         "redirect_urls": {
-          "return_url": "https://iichsmm.herokuapp.com/success",
+          "return_url": "https://ichsmm.com/success",
           "cancel_url": "http://cancel.url"
         },
         "transactions": [{
@@ -535,7 +535,7 @@ if (result.length < 0) {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1056001803541565500/kXy4x4wqT0xqOocsHpgOjRzphm_YQxkIT6KAwEvLgDLBr21x34cv3hS3krDKjomiiPwc', data)
+ axios.post('https://discord.com/api/webhooks/1062565640570945576/QgtY8BUJwL8-N69X9bL7iypDWNlSxVoSjyn-PmGYE18-g9mTTr3lVnlhePUS7RSVw-MV', data)
             res.json({ message: `Order placed successfully! | Funds Deducted: ${price}` });
           }
         );
@@ -589,7 +589,7 @@ app.get("/success", (req, res) => {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1056001803541565500/kXy4x4wqT0xqOocsHpgOjRzphm_YQxkIT6KAwEvLgDLBr21x34cv3hS3krDKjomiiPwc', data)
+ axios.post('https://discord.com/api/webhooks/1062565640570945576/QgtY8BUJwL8-N69X9bL7iypDWNlSxVoSjyn-PmGYE18-g9mTTr3lVnlhePUS7RSVw-MV', data)
       // .then(response => {
         // console.log(response.status);
 const email = req.session.user_email;
@@ -601,7 +601,7 @@ UserModel.updateOne(
       console.log(err);
     } else {
       // Use the `send` method of the `response` object to send a response to the client
-      res.redirect("https://iichsmm.herokuapp.com/");
+      res.redirect("https://ichsmm.com/");
     }
 
         }
