@@ -21,8 +21,8 @@ exports.registerUser = async (req, res) => {
     req.flash("messageType", "success");
     res.redirect("/login");
     
-  }
-})
+    }
+}
 
 
     
