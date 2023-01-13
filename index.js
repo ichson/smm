@@ -9,10 +9,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 const axios = require('axios');
 var paypal = require('paypal-rest-sdk');
+
+
+
 paypal.configure({
   'mode': 'live', //sandbox or live
-  'client_id': 'AfrTVTt94gqTBzNiu-gMYHSRaNTPWF5RRba4XmNdTg7R_IIFZw7S9_EVGfvBW7cKPSLTVdUNNr8qvDYV',
-  'client_secret': 'EAnyaCmrjvxeGegUasXOrDS6Y820PJoTQleP17MzCWfNm9C_g3mfPP9j_LfAKKPubx1D_T-F3mzoRpor'
+  'client_id': 'AXJ9CMeVjsPsBMFyocHDESa_VpCnEG0VAWoy7Qbmqt4kCSdxcac9APdqERF2Vg-83oZeUPhYFNWWuw_c',
+  'client_secret': 'ENuv94GxZCg8wBrTDoric2VM1IViJCmXJpZWl9N-LvtNoyzWs6hAtJ_5IdP9a--nR-476KviKLxfdWvS'
 });
 
 
@@ -90,8 +93,10 @@ const navLinks = [
   },
 ];
 
-// Homepage
+ 
+
 app.get("/", (req, res) => {
+ 
   UserModel.find({
     email: req.session.user_email,
     password: req.session.user_password,
@@ -99,7 +104,8 @@ app.get("/", (req, res) => {
     if (result.length > 0) {
       res.render("index", {
         navLinks: navLinks,
-        user: { name: result[0].name, email: result[0].email, funds: result[0].funds },
+        user: { name: result[0].name, email: result[0].email, funds: result[0].funds},
+      
       });
     } else {
    res.render("loading")
