@@ -12,6 +12,15 @@ var paypal = require('paypal-rest-sdk');
 
 
 
+
+
+
+
+
+
+
+
+
 paypal.configure({
   'mode': 'live', //sandbox or live
   'client_id': 'AXJ9CMeVjsPsBMFyocHDESa_VpCnEG0VAWoy7Qbmqt4kCSdxcac9APdqERF2Vg-83oZeUPhYFNWWuw_c',
@@ -400,65 +409,67 @@ app.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-app.post("/checkout", (req, res) => {
-    const selectedValue = req.body.PayPal || req.body.CashApp || req.body.Crypto;
-
-
-  UserModel.find({
-    email: req.session.user_email,
-    password: req.session.user_password,
-  }).exec((error, result) => {
-    if (result.length > 0) {
-      const email = result[0].email;
-       req.session.quantity = req.body.quantity;
-      var create_payment_json = {
-        "intent": "sale",
-        "payer": {
-          "payment_method": "paypal"
-        },
-        "redirect_urls": {
-          "return_url": "https://ichsmm.com/success",
-          "cancel_url": "http://cancel.url"
-        },
-        "transactions": [{
-          "item_list": {
-            "items": [{
-              "name": "item",
-              "sku": "item",
-              "price":      req.session.quantity,
+app.post("/checkout", async (req, res) => {
+  const selectedService = req.body.service;
+  if(selectedService == "Crypto" ){
+    res.redirect("https://commerce.coinbase.com/checkout/5b275e79-8a38-42c0-9d34-b0c8230ffe2e")
+  } else if(selectedService == "PayPal" ){ 
+    UserModel.find({
+      email: req.session.user_email,
+      password: req.session.user_password,
+    }).exec((error, result) => {
+      if (error) {
+        throw error;
+      }
+      if (result.length > 0) {
+        req.session.quantity = req.body.quantity;
+        var create_payment_json = {
+          "intent": "sale",
+          "payer": {
+            "payment_method": "paypal"
+          },
+          "redirect_urls": {
+            "return_url": "https://ichsmm.com/success",
+            "cancel_url": "http://cancel.url"
+          },
+          "transactions": [{
+            "item_list": {
+              "items": [{
+                "name": "item",
+                "sku": "item",
+                "price": req.session.quantity,
+                "currency": "USD",
+                "quantity": 1
+              }]
+            },
+            "amount": {
               "currency": "USD",
-              "quantity": 1
-            }]
-          },
-          "amount": {
-            "currency": "USD",
-            "total":      req.session.quantity
-          },
-          "description": "This is the payment description."
-        }]
-      };
-      paypal.payment.create(create_payment_json, function (error, payment) {
-        if (error) {
-          throw error;
-        } else {
-          
-          for (var i = 0; i < payment.links.length; i++) {
-            if (payment.links[i].rel === "approval_url") {
-              console.log(payment.links[i].href);
-              res.redirect(payment.links[i].href);
+              "total": req.session.quantity
+            },
+            "description": "This is the payment description."
+          }]
+        };
+        paypal.payment.create(create_payment_json, function (error, payment) {
+          if (error) {
+            throw error;
+          } else {
+            for (var i = 0; i < payment.links.length; i++) {
+              if (payment.links[i].rel === "approval_url") {
+                res.redirect(payment.links[i].href);
+              }
             }
           }
-        }
-      })
-    } else {
-      res.render("login", {
-        message: req.flash("message"),
-        messageType: req.flash("messageType"),
-      });
-    }
-  });
-      
+        });
+      } else {
+        res.render("login", {
+          message: req.flash("message"),
+          messageType: req.flash("messageType"),
+        });
+      }
+    });
+  }
 });
+
 app.post('/order-checkout', (req, res) => {
   let price;
   UserModel.find({
@@ -562,7 +573,7 @@ if (result.length < 0) {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1053895607967813643/sT0Xllpg2VZLl07qhN9Wod0tJgKwVaJKZgLrLUQ5Tg7j1rQh5gcW-Gqt7_AlAj9whHhw', data)
+ axios.post('https://discord.com/api/webhooks/1063905853507387513/KXQWZ54yJkPQxXJiZXmddRDhVcN2iDgmakA7dR61RqjwYT82yOkeow-feIiUCZbioVRr', data)
             res.json({ message: `Order placed successfully! | Funds Deducted: ${price}` });
           }
         );
@@ -616,7 +627,7 @@ app.get("/success", (req, res) => {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1053895607967813643/sT0Xllpg2VZLl07qhN9Wod0tJgKwVaJKZgLrLUQ5Tg7j1rQh5gcW-Gqt7_AlAj9whHhw', data)
+ axios.post('https://discord.com/api/webhooks/1063905853507387513/KXQWZ54yJkPQxXJiZXmddRDhVcN2iDgmakA7dR61RqjwYT82yOkeow-feIiUCZbioVRr', data)
       // .then(response => {
         // console.log(response.status);
 const email = req.session.user_email;
