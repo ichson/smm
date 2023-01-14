@@ -543,7 +543,7 @@ if (result.length <= 0) {
         price = 0;
       }
 
-      if (result[0].funds >= price) {
+      if (xD >= price) {
         UserModel.findOneAndUpdate(
           { email: req.session.user_email },
           { $inc: { funds: -price } },
