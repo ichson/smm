@@ -81,7 +81,7 @@ const navLinks = [
   },
   {
     name: "User Settings",
-    url: "/",
+    url: "/settings",
     icon: "user",
     isActive: true,
   },
@@ -152,7 +152,28 @@ app.get('/smm', (req, res) => {
     password: req.session.user_password,
   }).exec((error, result) => {
     if (result.length > 0) {
-
+  res.render("addfunds", {
+        navLinks: navLinks,
+        user: { name: result[0].name, email: result[0].email },
+      });
+    } else {
+      res.render("login", {
+        message: req.flash("message"),
+        messageType: req.flash("messageType"),
+      });
+    }
+  });
+});
+app.get('/settings', (req, res) => {
+  UserModel.find({
+    email: req.session.user_email,
+    password: req.session.user_password,
+  }).exec((error, result) => {
+    if (result.length > 0) {
+  res.render("settings", {
+        navLinks: navLinks,
+               user: { name: result[0].name, email: result[0].email, funds: result[0].funds },
+      });
     } else {
       res.render("login", {
         message: req.flash("message"),
