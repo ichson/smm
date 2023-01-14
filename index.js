@@ -480,7 +480,7 @@ app.post('/order-checkout', (req, res) => {
       console.log(error);
       return;
     }
-if (result.length < 0) {
+if (result.length <= 0) {
   res.render("login", {
     message: req.flash("message"),
     messageType: req.flash("messageType"),
