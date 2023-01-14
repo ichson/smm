@@ -573,7 +573,7 @@ if (result.length < 0) {
           description: description
         }]
       };
- axios.post('https://discord.com/api/webhooks/1063905853507387513/KXQWZ54yJkPQxXJiZXmddRDhVcN2iDgmakA7dR61RqjwYT82yOkeow-feIiUCZbioVRr', data)
+// axios.post('https://discord.com/api/webhooks/1063905853507387513/KXQWZ54yJkPQxXJiZXmddRDhVcN2iDgmakA7dR61RqjwYT82yOkeow-feIiUCZbioVRr', data)
             res.json({ message: `Order placed successfully! | Funds Deducted: ${price}` });
           }
         );
